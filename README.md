@@ -1,3 +1,13 @@
+## Customizations
+
+This is a customized copy of [react-boilerplate](https://github.com/react-boilerplate/react-boilerplate). It differs from the original in the following ways:
+
+* [Immutable](https://facebook.github.io/immutable-js/) has been completely removed.
+* [Ramda](http://ramdajs.com/) has been added.
+* [Selectors](https://github.com/reactjs/reselect) have been refactored with Ramda methods.
+
+---
+
 <img src="https://raw.githubusercontent.com/react-boilerplate/react-boilerplate-brand/master/assets/banner-metal-optimized.jpg" alt="react boilerplate banner" align="center" />
 
 <br />
