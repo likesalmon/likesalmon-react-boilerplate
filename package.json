@@ -1,7 +1,7 @@
 {
   "name": "likesalmon-react-boilerplate",
   "version": "3.4.0",
-  "description": "A customized copy react-boilerplate.",
+  "description": "A customized copy of react-boilerplate: a highly scalable, offline-first foundation with the best DX and a focus on performance and best practices.",
   "repository": {
     "type": "git",
     "url": "https://github.com/likesalmon/likesalmon-react-boilerplate.git"
