@@ -3,6 +3,7 @@
 This is a customized copy of [react-boilerplate](https://github.com/react-boilerplate/react-boilerplate). It differs from the original in the following ways:
 
 * [Immutable](https://facebook.github.io/immutable-js/) has been completely removed.
+* [redux-freeze](https://github.com/buunguyen/redux-freeze) has been added to enforce immutability.
 * [Ramda](http://ramdajs.com/) has been added.
 * [Selectors](https://github.com/reactjs/reselect) have been refactored with Ramda methods.
 
