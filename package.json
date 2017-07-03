@@ -11,7 +11,9 @@
     "node": ">=5"
   },
   "author": "Max Stoiber",
-  "contributors": ["Ammon Morris (http://likesalmon.net)"],
+  "contributors": [
+    "Ammon Morris (http://likesalmon.net)"
+  ],
   "license": "MIT",
   "scripts": {
     "analyze:clean": "rimraf stats.json",
@@ -231,6 +233,7 @@
     "react-router-redux": "4.0.6",
     "react-router-scroll": "0.4.1",
     "redux": "3.6.0",
+    "redux-freeze": "^0.1.5",
     "redux-saga": "0.14.0",
     "reselect": "2.5.4",
     "sanitize.css": "4.1.0",
