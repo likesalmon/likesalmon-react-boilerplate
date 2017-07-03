@@ -23,4 +23,12 @@ describe('configureStore', () => {
       expect(typeof store.runSaga).toBe('function');
     });
   });
+
+  describe('freeze middleware', () => {
+    it('should throw if an object from the store is mutated', () => {
+      const language = store.getState().language;
+      const mutate = (obj, prop, value) => (obj[prop] = value); // eslint-disable-line no-param-reassign
+      expect(mutate(language, 'locale', 'foo')).toThrow();
+    });
+  });
 });
