@@ -7,7 +7,7 @@
 import { take, call, put } from 'redux-saga/effects';
 import request from 'utils/request';
 import { MAKE_REQUEST } from '../constants';
-import { makeRequest, loading, success, failure } from '../actions';
+import { makeRequest, notAsked, loading, success, failure } from '../actions';
 import { githubServiceFlow, requestFlow } from '../sagas';
 
 const username = 'mxstbr';
@@ -15,6 +15,10 @@ const username = 'mxstbr';
 describe('Github Service Sagas', () => {
   describe('githubServiceFlow', () => {
     const gen = githubServiceFlow();
+
+    it('should set the initial status to NOT_ASKED', () => {
+      expect(gen.next().value).toEqual(put(notAsked()));
+    });
 
     it('should wait for MAKE_REQUEST to be dispatched', () => {
       expect(gen.next().value).toEqual(take(MAKE_REQUEST));

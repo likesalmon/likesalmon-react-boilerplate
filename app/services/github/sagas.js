@@ -7,7 +7,7 @@
 import { take, call, put } from 'redux-saga/effects';
 import request from 'utils/request';
 import { MAKE_REQUEST } from './constants';
-import { loading, success, failure } from './actions';
+import { notAsked, loading, success, failure } from './actions';
 
 export function* requestFlow(params) {
   // Set the status to LOADING and store the params
@@ -30,6 +30,10 @@ export function* requestFlow(params) {
 
 export function* githubServiceFlow() {
   /* eslint-disable no-constant-condition */
+
+  // Set the inital status
+  yield put(notAsked());
+
   while (true) {
     // Watch for MAKE_REQUEST to be dispatched
     const { params } = yield take(MAKE_REQUEST);
