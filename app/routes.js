@@ -2,6 +2,7 @@
 // They are all wrapped in the App component, which should contain the navbar etc
 // See http://blog.mxstbr.com/2016/01/react-apps-with-pages for more information
 // about the code splitting business
+import { NAMESPACE as GITHUB_SERVICE_NAMESPACE } from 'services/github/constants';
 import { getAsyncInjectors } from './utils/asyncInjectors';
 
 const errorLoading = (err) => {
@@ -24,21 +25,39 @@ export default function createRoutes(store) {
         const importModules = Promise.all([
           import('containers/HomePage/reducer'),
           import('containers/HomePage/sagas'),
+          // Register github service on this route only
+          import('services/github/reducer'),
+          import('services/github/sagas'),
           import('containers/HomePage'),
         ]);
 
         const renderRoute = loadModule(cb);
 
-        importModules.then(([reducer, sagas, component]) => {
-          injectReducer('home', reducer.default);
-          injectSagas(sagas.default);
-
-          renderRoute(component);
-        });
+        importModules.then(
+          (
+            [
+              reducer,
+              sagas,
+              githubServiceReducer,
+              githubServiceSagas,
+              component,
+            ]
+          ) => {
+            injectReducer('home', reducer.default);
+            injectSagas(sagas.default);
+            injectReducer(
+              GITHUB_SERVICE_NAMESPACE,
+              githubServiceReducer.default
+            );
+            injectSagas(githubServiceSagas.default);
+            renderRoute(component);
+          }
+        );
 
         importModules.catch(errorLoading);
       },
-    }, {
+    },
+    {
       path: '/features',
       name: 'features',
       getComponent(nextState, cb) {
@@ -46,7 +65,8 @@ export default function createRoutes(store) {
           .then(loadModule(cb))
           .catch(errorLoading);
       },
-    }, {
+    },
+    {
       path: '*',
       name: 'notfound',
       getComponent(nextState, cb) {
