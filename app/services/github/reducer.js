@@ -11,6 +11,7 @@ function reducer(state = {}, action) {
     case NOT_ASKED:
       return { status: NOT_ASKED };
     case LOADING:
+      // NOTE: don't save sensitive info like credentials to the store!
       return { status: LOADING, params: action.params };
     case SUCCESS:
       return { ...state, status: SUCCESS, results: action.results };
