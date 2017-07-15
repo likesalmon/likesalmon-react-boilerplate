@@ -85,7 +85,7 @@
   },
   "eslintConfig": {
     "parser": "babel-eslint",
-    "extends": "airbnb",
+    "extends": ["airbnb", "prettier"],
     "env": {
       "browser": true,
       "node": true,
@@ -95,7 +95,8 @@
     "plugins": [
       "redux-saga",
       "react",
-      "jsx-a11y"
+      "jsx-a11y",
+      "prettier"
     ],
     "parserOptions": {
       "ecmaVersion": 6,
@@ -265,9 +266,11 @@
     "eslint": "3.11.1",
     "eslint-config-airbnb": "13.0.0",
     "eslint-config-airbnb-base": "10.0.1",
+    "eslint-config-prettier": "^2.3.0",
     "eslint-import-resolver-webpack": "0.8.0",
     "eslint-plugin-import": "2.2.0",
     "eslint-plugin-jsx-a11y": "2.2.3",
+    "eslint-plugin-prettier": "^2.1.2",
     "eslint-plugin-react": "6.7.1",
     "eslint-plugin-redux-saga": "0.1.5",
     "eventsource-polyfill": "0.9.6",
@@ -285,6 +288,7 @@
     "offline-plugin": "4.5.2",
     "plop": "1.7.3",
     "pre-commit": "1.1.3",
+    "prettier": "^1.5.2",
     "react-addons-test-utils": "15.4.1",
     "rimraf": "2.5.4",
     "shelljs": "0.7.5",
