@@ -1,0 +1,46 @@
+/**
+ *
+ * {{ properCase name }} Service Sagas
+ *
+ */
+
+import { take, call, put } from 'redux-saga/effects';
+import request from 'utils/request';
+import { MAKE_REQUEST } from './constants';
+import { notAsked, loading, success, failure } from './actions';
+
+export function* requestFlow(params) {
+  // Set the status to LOADING and store the params
+  yield put(loading(params));
+
+  // Sample usage to grab data from store by way of selector
+  // const username = yield select(makeSelectUsername());
+  // Sample usage to grab data from params
+  const requestURL = `https://path.to.api.com/users/${params.username}/`;
+
+  try {
+    // Make the request
+    const results = yield call(request, requestURL);
+    // Set the status to SUCCESS and store the results
+    yield put(success(results));
+  } catch (err) {
+    // Set the status to FAILURE and store the error
+    yield put(failure(err));
+  }
+}
+
+export function* {{ lowercase name }}ServiceFlow() {
+  /* eslint-disable no-constant-condition */
+
+  // Set the inital status
+  yield put(notAsked());
+
+  while (true) {
+    // Watch for MAKE_REQUEST to be dispatched
+    const { params } = yield take(MAKE_REQUEST);
+    // Make the request
+    yield call(requestFlow, params);
+  }
+}
+
+export default [{{ lowercase name }}ServiceFlow];
