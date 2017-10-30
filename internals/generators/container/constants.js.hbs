@@ -1,7 +1,11 @@
 /*
  *
- * {{ properCase name }} constants
+ * {{ properCase name }} Constants
  *
  */
 
-export const DEFAULT_ACTION = 'app/{{ properCase name }}/DEFAULT_ACTION';
+import { PROJECT_NAMESPACE } from '../../constants';
+
+export const NAMESPACE = `${PROJECT_NAMESPACE}/{{ properCase name }}`;
+
+export const DEFAULT_ACTION = `${NAMESPACE}/DEFAULT_ACTION`;

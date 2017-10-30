@@ -13,7 +13,7 @@
         const renderRoute = loadModule(cb);
 
         importModules.then(([reducer,{{#if useSagas}} sagas,{{/if}} component]) => {
-          injectReducer('{{ camelCase component }}', reducer.default);
+          injectReducer({{ constantCase component }}_NAMESPACE, reducer.default);
           {{#if useSagas}}
           injectSagas(sagas.default);
           {{/if}}

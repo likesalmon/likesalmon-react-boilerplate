@@ -1,6 +1,6 @@
 /**
 *
-* {{ properCase name }}
+* <{{ properCase name }} />
 *
 */
 
@@ -12,15 +12,7 @@ import { FormattedMessage } from 'react-intl';
 import messages from './messages';
 {{/if}}
 
-function {{ properCase name }}() {
-  return (
-    <div>
-    {{#if wantMessages}}
-      <FormattedMessage {...messages.header} />
-    {{/if}}
-    </div>
-  );
-}
+const {{ properCase name }} = () => <div>{{ properCase name }}</div>;
 
 {{ properCase name }}.propTypes = {
 
