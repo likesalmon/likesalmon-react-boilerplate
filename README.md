@@ -6,6 +6,7 @@ This is a customized copy of [react-boilerplate](https://github.com/react-boiler
 * [redux-freeze](https://github.com/buunguyen/redux-freeze) has been added to enforce immutability.
 * [Ramda](http://ramdajs.com/) has been added.
 * [Selectors](https://github.com/reactjs/reselect) have been refactored with Ramda methods.
+* A service generator has been added to create default files and tests. Sample usage: `npm run generate service`
 
 ---
 
